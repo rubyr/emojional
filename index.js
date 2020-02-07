@@ -1,4 +1,3 @@
-
 var message = document.querySelector(".message");
 
 var happyButton = document.querySelector(".happy");
@@ -21,31 +20,21 @@ var sadResponses = [
   "What can I do?"
 ];
 
-happyButton.addEventListener("click", messageHappy);
-sillyButton.addEventListener("click", messageSilly);
-sadButton.addEventListener("click", messageSad);
+happyButton.addEventListener("click", function() {
+  changeMessage(happyResponses);
+});
+sillyButton.addEventListener("click", function() {
+  changeMessage(sillyResponses);
+});
+sadButton.addEventListener("click", function() {
+  changeMessage(sadResponses);
+});
 
-function messageHappy() {
-  var responseNum = Math.floor(Math.random() * happyResponses.length);
-  if (message.innerText == happyResponses[responseNum]) {
+function changeMessage(messageList) {
+  var responseNum = Math.floor(Math.random() * messageList.length);
+  if (message.innerText == messageList[responseNum]) {
     responseNum++;
-    responseNum = responseNum % happyResponses.length;
+    responseNum = responseNum % messageList.length;
   } 
-  message.innerText = happyResponses[responseNum];
-}
-function messageSilly() {
-  var responseNum = Math.floor(Math.random() * sillyResponses.length);
-  if (message.innerText == sillyResponses[responseNum]) {
-    responseNum++;
-    responseNum = responseNum % sillyResponses.length;
-  } 
-  message.innerText = sillyResponses[responseNum];
-}
-function messageSad() {
-  var responseNum = Math.floor(Math.random() * sadResponses.length);
-  if (message.innerText == sadResponses[responseNum]) {
-    responseNum++;
-    responseNum = responseNum % sadResponses.length;
-  } 
-  message.innerText = sadResponses[responseNum];
-}
+  message.innerText = messageList[responseNum];
+} 
