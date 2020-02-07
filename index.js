@@ -27,6 +27,10 @@ sadButton.addEventListener("click", messageSad);
 
 function messageHappy() {
   var responseNum = Math.floor(Math.random() * happyResponses.length);
+  if (message.innerText == happyResponses[responseNum]) {
+    responseNum++;
+    responseNum = responseNum % happyResponses.length;
+  } 
   message.innerText = happyResponses[responseNum];
 }
 function messageSilly() {
