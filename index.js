@@ -13,9 +13,17 @@ var sillyResponses = [
   "Sounds ... good?",
   "Me too."
 ];
+var sadButton = document.querySelector(".crying");
+var sadResponses = [
+  "Do you want to talk?",
+  "Keep your head up",
+  "We can cry together!",
+  "What can I do?"
+];
 
 happyButton.addEventListener("click", messageHappy);
 sillyButton.addEventListener("click", messageSilly);
+sadButton.addEventListener("click", messageSad);
 
 function messageHappy() {
   var responseNum = Math.floor(Math.random() * happyResponses.length);
@@ -24,4 +32,8 @@ function messageHappy() {
 function messageSilly() {
   var responseNum = Math.floor(Math.random() * sillyResponses.length);
   message.innerText = sillyResponses[responseNum];
+}
+function messageSad() {
+  var responseNum = Math.floor(Math.random() * sadResponses.length);
+  message.innerText = sadResponses[responseNum];
 }
