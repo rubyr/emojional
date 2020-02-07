@@ -35,9 +35,17 @@ function messageHappy() {
 }
 function messageSilly() {
   var responseNum = Math.floor(Math.random() * sillyResponses.length);
+  if (message.innerText == sillyResponses[responseNum]) {
+    responseNum++;
+    responseNum = responseNum % sillyResponses.length;
+  } 
   message.innerText = sillyResponses[responseNum];
 }
 function messageSad() {
   var responseNum = Math.floor(Math.random() * sadResponses.length);
+  if (message.innerText == sadResponses[responseNum]) {
+    responseNum++;
+    responseNum = responseNum % sadResponses.length;
+  } 
   message.innerText = sadResponses[responseNum];
 }
